@@ -2,12 +2,12 @@ package org.main;
 
 public class Reservation {
 
-    private  String passengerName;
-    private  String passengerSurname;
-    private  int flightNumber;
-    private  User user;
-    private  double price;
-    private  int seatNumber;
+    private String passengerName;
+    private String passengerSurname;
+    private int flightNumber;
+    private User user;
+    private double price;
+    private int seatNumber;
 
     public Reservation(String passengerName, String passengerSurname, int flightNumber, User user, double price, int seatNumber) {
         this.passengerName = passengerName;
@@ -64,5 +64,17 @@ public class Reservation {
 
     public void setSeatNumber(int seatNumber) {
         this.seatNumber = seatNumber;
+    }
+
+    public String prettyFormat() {
+        StringBuilder pf = new StringBuilder();
+
+        pf.append("   Passenger name: ").append(passengerName);
+        pf.append("   Passenger surname: ").append(passengerSurname);
+        pf.append("   Flight number: ").append(flightNumber);
+        pf.append("   Price: ").append(price);
+        pf.append("   Seat number: ").append(seatNumber);
+
+        return  pf.toString();
     }
 }

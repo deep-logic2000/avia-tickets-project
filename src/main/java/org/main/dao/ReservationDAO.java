@@ -8,6 +8,6 @@ import java.util.List;
 public interface ReservationDAO {
 List<Reservation> getAllReservationsOfThisUser(User user);
 Reservation getReservationsOfThisUserById(User user, int id);
-void addReservation();
+void addReservation(User user);
 void deleteReservationById(User user, int id);
 }
