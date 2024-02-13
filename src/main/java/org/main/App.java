@@ -44,9 +44,9 @@ public class App implements Serializable {
         User user1 = new User("Pavlo", "Barabah");
         User user2 = new User("Kyrylo", "Nazarov");
         User user3 = new User("Yaroslav", "Voznyuk");
-        userController.saveUser(user1);
-        userController.saveUser(user2);
-        userController.saveUser(user3);
+        userController.createNewUser(user1);
+        userController.createNewUser(user2);
+        userController.createNewUser(user3);
 
     }
 }
