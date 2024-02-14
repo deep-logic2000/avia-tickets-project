@@ -3,6 +3,8 @@ package org.main.dao;
 import org.main.Reservation;
 import org.main.User;
 
+import java.io.*;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -50,5 +52,30 @@ public class CollectionsReservationDAO implements ReservationDAO {
         Reservation reservationDel = getAllReservationsOfThisUser(user).get(id);
         reservations.remove(reservationDel);
     }
+
+    public void loadData(List<Reservation> reservation) {
+        reservations = reservation;
+    }
+
+    public void writingDataToAFile(List<Reservation> reservation) {
+        try (FileOutputStream fileOut = new FileOutputStream("reservationDataFile.bin");
+             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
+            objectOut.writeObject(reservation);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void loadingDataFromAFile() {
+        List<Reservation> reservations;
+        try (FileInputStream fileIn = new FileInputStream("reservationDataFile.bin");
+             ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
+            reservations = (List<Reservation>) objectIn.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        loadData(reservations);
+    }
+
 
 }

@@ -35,6 +35,14 @@ public class ReservationController {
     }
 
     public void displayReservationsOfThisUserById(User user, int id){
-        System.out.println(getReservationsOfThisUserById(user, id).prettyFormat());
+        reservationService.displayReservationsOfThisUserById(user, id);
+    }
+
+    public void writingDataToAFile(List<Reservation> reservation) {
+        reservationService.writingDataToAFile(reservation);
+    }
+
+    public void loadingDataFromAFile() {
+        reservationService.loadingDataFromAFile();
     }
 }

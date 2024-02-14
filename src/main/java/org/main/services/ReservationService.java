@@ -5,6 +5,7 @@ import org.main.Reservation;
 import org.main.User;
 import org.main.dao.CollectionsReservationDAO;
 
+import java.io.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,4 +44,13 @@ public class ReservationService {
     public void displayReservationsOfThisUserById(User user, int id){
         System.out.println(getReservationsOfThisUserById(user, id).prettyFormat());
     }
+
+    public void writingDataToAFile(List<Reservation> reservation) {
+        reservations.writingDataToAFile(reservation);
+    }
+
+    public void loadingDataFromAFile() {
+        reservations.loadingDataFromAFile();
+    }
+
 }
