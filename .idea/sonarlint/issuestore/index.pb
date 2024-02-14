@@ -3,3 +3,17 @@
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 O
 src/main/java/org/main/App.java,7\c\7c7a646becaf3e6022c94df337c3173707e42072
+W
+'src/main/java/org/main/dao/UserDAO.java,6\4\6436e64a905d4f03b4682ed7ef42c28095f9bc60
+Z
+*src/main/java/org/main/dao/FlightsDAO.java,e\3\e3ce0191892636baa571bb7e7d9b59a6c4132fef
+R
+"src/main/java/org/main/Flight.java,0\7\07ca35f0d086b13b3618c43af463c7372a8d003d
+d
+4src/main/java/org/main/dao/CollectionFlightsDAO.java,4\1\414d7eb2ca45f2611f977aff4a8f14a9a5e0b0d7
+P
+ src/main/java/org/main/User.java,9\e\9e90da239b4e1921ae0749fbf97063785b99f4d6
+b
+2src/main/java/org/main/services/FlightService.java,7\8\7811f39f52c2a6587381586a3ead610b32a078c5
+h
+8src/main/java/org/main/controllers/FlightController.java,4\f\4fc63200e69103fb17653917672d221b376c2e92

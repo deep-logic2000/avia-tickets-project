@@ -1,4 +1,7 @@
 
-G	java:S106
-"+Replace this use of System.out by a logger.(‹«΄8…ξ΄ΌΪ1
-L	java:S106"+Replace this use of System.out by a logger.(ιω±…ώÿÿÿÿ8‡ξ΄ΌΪ1
+a
+java:S1854"DRemove this useless assignment to local variable "flightController".(°“³Ν8ω‹„ΓΪ1
+G	java:S106"+Replace this use of System.out by a logger.(‹«΄8…ξ΄ΌΪ1
+L	java:S106"+Replace this use of System.out by a logger.(ιω±…ώÿÿÿÿ8‡ξ΄ΌΪ1
+R
+java:S1481"5Remove this unused "flightController" local variable.(°“³Ν8„ΓΪ1

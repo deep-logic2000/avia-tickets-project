@@ -1,0 +1,10 @@
+
+y	java:S127"XRefactor the code in order to not assign to this loop counter from within the loop body.(Úß˜»ùÿÿÿÿ8 »õÂÚ1
+t	java:S127"XRefactor the code in order to not assign to this loop counter from within the loop body.(¦Õœ¹8 »õÂÚ1
+
+java:S1186#"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(·ºÑŸ8£»õÂÚ1
+F
+java:S2140")Use "java.util.Random.nextInt()" instead.(ê™Ç·8¦»õÂÚ1
+G	java:S106"+Replace this use of System.out by a logger.(©î®¡8¨»õÂÚ1
+K
+java:S2140")Use "java.util.Random.nextInt()" instead.(Áƒ«ˆÿÿÿÿÿ8©»õÂÚ1
