@@ -41,9 +41,9 @@ public class App implements Serializable {
     }
 
     public static void createNewUser(){
-        User user1 = new User("Pavlo", "Barabah");
-        User user2 = new User("Kyrylo", "Nazarov");
-        User user3 = new User("Yaroslav", "Voznyuk");
+        User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
+        User user2 = new User("Kyrylo", "Nazarov", "Кирило", "Назаров");
+        User user3 = new User("Yaroslav", "Voznyuk", "Ярослав", "Вознюк");
         userController.createNewUser(user1);
         userController.createNewUser(user2);
         userController.createNewUser(user3);
