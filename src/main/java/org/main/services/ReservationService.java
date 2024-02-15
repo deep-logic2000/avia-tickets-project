@@ -13,6 +13,10 @@ import java.util.stream.Collectors;
 public class ReservationService {
     private CollectionsReservationDAO reservations = new CollectionsReservationDAO();
 
+    public List<Reservation> getAllReservations() {
+        return reservations.getAllReservations();
+    }
+
     public List<Reservation> getAllReservationsOfThisUser(User user) {
         return reservations.getAllReservationsOfThisUser(user);
     }

@@ -1,38 +1,22 @@
 package org.main;
 
-public class Reservation {
+import java.io.Serializable;
 
-    private String passengerName;
-    private String passengerSurname;
+public class Reservation implements Serializable {
+
     private int flightNumber;
     private User user;
     private double price;
     private int seatNumber;
 
-    public Reservation(String passengerName, String passengerSurname, int flightNumber, User user, double price, int seatNumber) {
-        this.passengerName = passengerName;
-        this.passengerSurname = passengerSurname;
+    public Reservation(int flightNumber, User user, double price, int seatNumber) {
+
         this.flightNumber = flightNumber;
         this.user = user;
         this.price = price;
         this.seatNumber = seatNumber;
     }
 
-    public String getPassengerName() {
-        return passengerName;
-    }
-
-    public void setPassengerName(String passengerName) {
-        this.passengerName = passengerName;
-    }
-
-    public String getPassengerSurname() {
-        return passengerSurname;
-    }
-
-    public void setPassengerSurname(String passengerSurname) {
-        this.passengerSurname = passengerSurname;
-    }
 
     public int getFlightNumber() {
         return flightNumber;
@@ -69,8 +53,8 @@ public class Reservation {
     public String prettyFormat() {
         StringBuilder pf = new StringBuilder();
 
-        pf.append("   Passenger name: ").append(passengerName);
-        pf.append("   Passenger surname: ").append(passengerSurname);
+        pf.append("   Passenger name: ").append(user.getName());
+        pf.append("   Passenger surname: ").append(user.getSurname());
         pf.append("   Flight number: ").append(flightNumber);
         pf.append("   Price: ").append(price);
         pf.append("   Seat number: ").append(seatNumber);

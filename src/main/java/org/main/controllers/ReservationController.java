@@ -9,6 +9,9 @@ import java.util.List;
 public class ReservationController {
     private ReservationService reservationService;
 
+    public List<Reservation> getAllReservations() {
+        return reservationService.getAllReservations();
+    }
 
     public ReservationController(ReservationService reservationService) {
         this.reservationService = reservationService;

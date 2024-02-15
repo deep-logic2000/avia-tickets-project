@@ -1,6 +1,7 @@
 package org.main;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class User implements Serializable {
 
@@ -62,4 +63,5 @@ public class User implements Serializable {
     public void setSurname(String surname) {
         this.surname = surname;
     }
+
 }
