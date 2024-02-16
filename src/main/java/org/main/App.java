@@ -12,6 +12,8 @@ import java.util.Scanner;
  */
 public class App implements Serializable {
 
+    public static final String FILE_NAME = "reservationDataFile.bin";
+    public static final String TEST_FILE_NAME = "reservationDataFileFromTests.bin";
     static UserController userController = new UserController();
     static Scanner scanner = new Scanner(System.in);
 
@@ -33,9 +35,12 @@ public class App implements Serializable {
 //        reservationController.addReservation(user2);
 //        reservationController.addReservation(user2);
 //        reservationController.addReservation(user3);
-        reservationController.loadingDataFromAFile();
 
-//        reservationController.writingDataToAFile(reservationController.getAllReservations());
+
+        reservationController.loadingDataFromAFile(FILE_NAME);
+
+
+//        reservationController.writingDataToAFile(reservationController.getAllReservations(), (FILE_NAME);
         System.out.println("--------------------------displayAllReservationsOfThisUser-----------------------------");
         reservationController.displayAllReservationsOfThisUser(user1);
         reservationController.displayAllReservationsOfThisUser(user2);

@@ -41,11 +41,15 @@ public class ReservationController {
         reservationService.displayReservationsOfThisUserById(user, id);
     }
 
-    public void writingDataToAFile(List<Reservation> reservation) {
-        reservationService.writingDataToAFile(reservation);
+    public boolean saveReservation(Reservation reservation) {
+        return reservationService.saveReservation(reservation);
     }
 
-    public void loadingDataFromAFile() {
-        reservationService.loadingDataFromAFile();
+    public void writingDataToAFile(List<Reservation> reservation, String fileName) {
+        reservationService.writingDataToAFile(reservation, fileName);
+    }
+
+    public void loadingDataFromAFile(String fileName) {
+        reservationService.loadingDataFromAFile(fileName);
     }
 }

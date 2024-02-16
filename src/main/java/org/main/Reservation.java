@@ -1,6 +1,7 @@
 package org.main;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Reservation implements Serializable {
 
@@ -59,6 +60,33 @@ public class Reservation implements Serializable {
         pf.append("   Price: ").append(price);
         pf.append("   Seat number: ").append(seatNumber);
 
-        return  pf.toString();
+        return pf.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reservation reservation = (Reservation) o;
+        return Objects.equals(flightNumber, reservation.flightNumber) && Objects.equals(user, reservation.user)
+                && Objects.equals(price, reservation.price) && Objects.equals(seatNumber, reservation.seatNumber);
+    }
+
+
+
+    @Override
+    public int hashCode() {return Objects.hash(flightNumber, user, price, seatNumber);}
+
+
+
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "flightNumber=" + flightNumber +
+                ", user=" + user +
+                ", price=" + price +
+                ", seatNumber=" + seatNumber +
+                '}';
     }
 }

@@ -52,12 +52,24 @@ public class CollectionsReservationDAO implements ReservationDAO {
         reservations.remove(reservationDel);
     }
 
+    @Override
+    public boolean saveReservation(Reservation reservation) {
+        int reservationIndex = reservations.indexOf(reservation);
+        if (reservationIndex != -1) {
+            reservations.set(reservationIndex, reservation);
+        } else {
+            reservations.add(reservation);
+        }
+        return true;
+    }
+
+
     public void loadData(List<Reservation> reservation) {
         reservations = reservation;
     }
 
-    public void writingDataToAFile(List<Reservation> reservation) {
-        try (FileOutputStream fileOut = new FileOutputStream("reservationDataFile.bin");
+    public void writingDataToAFile(List<Reservation> reservation, String fileName) {
+        try (FileOutputStream fileOut = new FileOutputStream(fileName);
              ObjectOutputStream objectOut = new ObjectOutputStream(fileOut)) {
             objectOut.writeObject(reservation);
         } catch (IOException e) {
@@ -65,9 +77,9 @@ public class CollectionsReservationDAO implements ReservationDAO {
         }
     }
 
-    public void loadingDataFromAFile() {
+    public void loadingDataFromAFile(String fileName) {
         List<Reservation> reservations;
-        try (FileInputStream fileIn = new FileInputStream("reservationDataFile.bin");
+        try (FileInputStream fileIn = new FileInputStream(fileName);
              ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {
             reservations = (List<Reservation>) objectIn.readObject();
         } catch (IOException | ClassNotFoundException e) {

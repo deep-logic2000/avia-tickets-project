@@ -49,12 +49,18 @@ public class ReservationService {
         System.out.println(getReservationsOfThisUserById(user, id).prettyFormat());
     }
 
-    public void writingDataToAFile(List<Reservation> reservation) {
-        reservations.writingDataToAFile(reservation);
+    public boolean saveReservation(Reservation reservation) {
+        return reservations.saveReservation(reservation);
     }
 
-    public void loadingDataFromAFile() {
-        reservations.loadingDataFromAFile();
+    public void writingDataToAFile(List<Reservation> reservation, String fileName) {
+
+        reservations.writingDataToAFile(reservation, fileName);
+    }
+
+    public void loadingDataFromAFile(String fileName) {
+
+        reservations.loadingDataFromAFile(fileName);
     }
 
 }
