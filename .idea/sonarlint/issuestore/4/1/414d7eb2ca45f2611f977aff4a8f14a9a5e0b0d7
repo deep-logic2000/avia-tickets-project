@@ -1,9 +1,17 @@
 
 v
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(£Þ¡¿8ª‹ÏìÚ1
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(£Þ¡¿8ð–¥˜Û1
 €
-java:S14884"^Immediately return this expression instead of assigning it to the temporary variable "flight".(ÍÚ»ÿÿÿÿÿ8¬‹ÏìÚ1
+java:S14883"^Immediately return this expression instead of assigning it to the temporary variable "flight".(ÍÚ»ÿÿÿÿÿ8ñ–¥˜Û1
 ‰
-java:S1488:"gImmediately return this expression instead of assigning it to the temporary variable "filteredFlights".(ù§Ôàúÿÿÿÿ8ééÑìÚ1
+java:S1488="gImmediately return this expression instead of assigning it to the temporary variable "filteredFlights".(ù§Ôàúÿÿÿÿ8ò–¥˜Û1
+L	java:S1066"+Replace this use of System.out by a logger.(¨¶ÑÍþÿÿÿÿ8‘—¥˜Û1
+o
+java:S6204A"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8’—¥˜Û1
+…
+java:S1157>"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(‘©êÏùÿÿÿÿ8’—¥˜Û1
 >
-java:S1116A"Remove this empty statement.(ôŸŽìúÿÿÿÿ8Ö‹ÏìÚ1
+java:S1116D"Remove this empty statement.(ôŸŽìúÿÿÿÿ8”—¥˜Û1
+G	java:S106Y"+Replace this use of System.out by a logger.(Œçš¤8—¨¨˜Û1
+>
+java:S1116\"Remove this empty statement.(ôŸŽìúÿÿÿÿ8˜—¥˜Û1

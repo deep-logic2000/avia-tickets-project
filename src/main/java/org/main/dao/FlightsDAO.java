@@ -9,7 +9,7 @@ import java.util.List;
 public interface FlightsDAO {
     List<Flight> getAllFlights();
     Flight getFlightById(int id) throws Exception;
-    List<Flight> getFlightsByInfo(String destination, Date dateOfFlight, int amount);
+    List<Flight> getFlightsByInfo(String destination, LocalDate dateOfFlight, int amount);
     void loadDataFromFile();
     void saveDataToFile();
 }

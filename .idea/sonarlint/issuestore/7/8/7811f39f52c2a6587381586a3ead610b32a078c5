@@ -1,10 +1,26 @@
 
-y	java:S127"XRefactor the code in order to not assign to this loop counter from within the loop body.(Úß˜»ùÿÿÿÿ8 »õÂÚ1
-t	java:S127"XRefactor the code in order to not assign to this loop counter from within the loop body.(¦Õœ¹8 »õÂÚ1
-
-java:S1186$"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(·ºÑŸ8£»õÂÚ1
+y	java:S127."XRefactor the code in order to not assign to this loop counter from within the loop body.(Úß˜»ùÿÿÿÿ8âÀ®˜Û1
+t	java:S127/"XRefactor the code in order to not assign to this loop counter from within the loop body.(¦Õœ¹8ãÀ®˜Û1
+„
+java:S1488;"bImmediately return this expression instead of assigning it to the temporary variable "allFlights".(–Ùáúÿÿÿÿ8äÀ®˜Û1
+N
+java:S1948",Make "flightsDAO" transient or serializable.(õ³ğ‚ùÿÿÿÿ8øÀ®˜Û1
 F
-java:S2140")Use "java.util.Random.nextInt()" instead.(ê™Ç·8¦»õÂÚ1
-G	java:S106"+Replace this use of System.out by a logger.(©î®¡8¨»õÂÚ1
+java:S2140")Use "java.util.Random.nextInt()" instead.(ê™Ç·8üÀ®˜Û1
+F
+java:S2140")Use "java.util.Random.nextInt()" instead.(æåë8ıÀ®˜Û1
 K
-java:S2140")Use "java.util.Random.nextInt()" instead.(Áƒ«ˆÿÿÿÿÿ8©»õÂÚ1
+java:S2140,")Use "java.util.Random.nextInt()" instead.(Áƒ«ˆÿÿÿÿÿ8Á®˜Û1
+K
+java:S21407")Use "java.util.Random.nextInt()" instead.(íŞ øşÿÿÿÿ8ƒÁ®˜Û1
+>
+java:S1116="Remove this empty statement.(ôŸìúÿÿÿÿ8…Á®˜Û1
+W	java:S125A"<This block of commented-out lines of code should be removed.(¸Úù#8†Á®˜Û1
+`
+java:S1155B">Use isEmpty() to check whether the collection is empty or not.(–á—ûùÿÿÿÿ8†Á®˜Û1
+G	java:S106C"+Replace this use of System.out by a logger.(ß’Ú…8†Á®˜Û1
+n
+java:S3457G"Q%n should be used in place of \n to produce the platform-specific line separator.(ºÜèÔ8‡Á®˜Û1
+G	java:S106G"+Replace this use of System.out by a logger.(ºÜèÔ8‡Á®˜Û1
+>
+java:S1116T"Remove this empty statement.(ôŸìúÿÿÿÿ8‰Á®˜Û1
