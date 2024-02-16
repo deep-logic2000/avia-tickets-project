@@ -51,9 +51,8 @@ public class CollectionFlightsDAO implements FlightsDAO {
             Flight flight = this.flights.stream().filter(el -> el.flightNumber == id).findFirst().orElseThrow(() -> new Exception("There are no flights with such number. Try again."));
             return flight;
         } catch (Exception e) {
-            System.out.println(e);
+            throw new Exception();
         }
-        return null;
     }
 
     @Override

@@ -27,3 +27,5 @@ S
 #src/test/java/org/main/AppTest.java,3\3\3328bc485ee6d31a4c2c27af71b56e21ec00d703
 ;
 flights.bin,a\2\a27dc489bd37fba6a0a2409fc2222c1b7ae5c495
+h
+8src/test/java/org/main/dao/CollectionFlightsDAOTest.java,4\7\4757dd7cc7fb67306ee757ce8aeac7b604074e29

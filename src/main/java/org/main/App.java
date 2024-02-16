@@ -29,6 +29,6 @@ public class App implements Serializable {
         flightController.displayAllFlights();
         System.out.println("================================================");
         flightController.displayFlightByInfo("City21", LocalDate.of(2024, 5, 23), 2); // MM/DD/YYYY
-        flightController.displayFlightById(34);
+        flightController.displayFlightById(15);
     }
 }

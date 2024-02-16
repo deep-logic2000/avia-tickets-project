@@ -27,8 +27,13 @@ public class FlightController {
     }
 
     public void displayFlightById(int id) throws Exception {
+        try{
         Flight result = flightService.getFlightById(id);
         System.out.println(result.prettyFormat());
+
+        } catch (Exception e) {
+            System.out.println("There are no flights with such number. Try again.");
+        }
     }
 
 }
