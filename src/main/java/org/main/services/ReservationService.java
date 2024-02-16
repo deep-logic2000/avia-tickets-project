@@ -1,6 +1,7 @@
 package org.main.services;
 
 
+import org.main.Flight;
 import org.main.Reservation;
 import org.main.User;
 import org.main.dao.CollectionsReservationDAO;
@@ -25,8 +26,8 @@ public class ReservationService {
         return reservations.getReservationsOfThisUserById(user, id);
     }
 
-    public void addReservation(User user) {
-        reservations.addReservation(user);
+    public void addReservation(User user, Flight flight) {
+        reservations.addReservation(user, flight);
     }
 
     public void deleteReservationById(User user, int id) {

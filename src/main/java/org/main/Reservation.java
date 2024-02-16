@@ -5,26 +5,26 @@ import java.util.Objects;
 
 public class Reservation implements Serializable {
 
-    private int flightNumber;
+    private Flight flight;
     private User user;
     private double price;
     private int seatNumber;
 
-    public Reservation(int flightNumber, User user, double price, int seatNumber) {
+    public Reservation(Flight flight, User user, double price, int seatNumber) {
 
-        this.flightNumber = flightNumber;
+        this.flight = flight;
         this.user = user;
         this.price = price;
         this.seatNumber = seatNumber;
     }
 
 
-    public int getFlightNumber() {
-        return flightNumber;
+    public Flight getFlight() {
+        return flight;
     }
 
-    public void setFlightNumber(int flightNumber) {
-        this.flightNumber = flightNumber;
+    public void setFlight(Flight flight) {
+        this.flight = flight;
     }
 
     public User getUser() {
@@ -56,9 +56,9 @@ public class Reservation implements Serializable {
 
         pf.append("   Passenger name: ").append(user.getName());
         pf.append("   Passenger surname: ").append(user.getSurname());
-        pf.append("   Flight number: ").append(flightNumber);
         pf.append("   Price: ").append(price);
         pf.append("   Seat number: ").append(seatNumber);
+        pf.append(flight.prettyFormat());
 
         return pf.toString();
     }
@@ -68,14 +68,14 @@ public class Reservation implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Reservation reservation = (Reservation) o;
-        return Objects.equals(flightNumber, reservation.flightNumber) && Objects.equals(user, reservation.user)
+        return Objects.equals(flight, reservation.flight) && Objects.equals(user, reservation.user)
                 && Objects.equals(price, reservation.price) && Objects.equals(seatNumber, reservation.seatNumber);
     }
 
 
 
     @Override
-    public int hashCode() {return Objects.hash(flightNumber, user, price, seatNumber);}
+    public int hashCode() {return Objects.hash(flight, user, price, seatNumber);}
 
 
 
@@ -83,7 +83,7 @@ public class Reservation implements Serializable {
     @Override
     public String toString() {
         return "Reservation{" +
-                "flightNumber=" + flightNumber +
+                "flightNumber=" + flight +
                 ", user=" + user +
                 ", price=" + price +
                 ", seatNumber=" + seatNumber +

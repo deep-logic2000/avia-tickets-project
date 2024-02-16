@@ -1,5 +1,6 @@
 package org.main.controllers;
 
+import org.main.Flight;
 import org.main.Reservation;
 import org.main.User;
 import org.main.services.ReservationService;
@@ -25,8 +26,8 @@ public class ReservationController {
         return reservationService.getReservationsOfThisUserById(user, id);
     }
 
-    public void addReservation(User user) {
-        reservationService.addReservation(user);
+    public void addReservation(User user, Flight flight) {
+        reservationService.addReservation(user, flight);
     }
 
     public void deleteReservationById(User user, int id) {

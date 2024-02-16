@@ -1,5 +1,6 @@
 package org.main.dao;
 
+import org.main.Flight;
 import org.main.Reservation;
 import org.main.User;
 
@@ -34,14 +35,12 @@ public class CollectionsReservationDAO implements ReservationDAO {
     }
 
     @Override
-    public void addReservation(User user) {
-        System.out.println("Input flight number:");
-        int flightNumber = scanner.nextInt();
+    public void addReservation(User user, Flight flight) {
         System.out.println("Input price:");
         double price = scanner.nextDouble();
         System.out.println("Input seat number:");
         int seatNumber = scanner.nextInt();
-        Reservation reservation = new Reservation(flightNumber, user, price, seatNumber);
+        Reservation reservation = new Reservation(flight, user, price, seatNumber);
 
         reservations.add(reservation);
     }
