@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 
 public class Flight {
     int MAX_AMOUNT_OF_PASSENGERS = 150;
-    int flightNumber = 0;
-    LocalDateTime dateAndTimeOfFlight;
-    String destinationCity;
-    int amountOfAvailablePlaces;
+    public int flightNumber = 0;
+    public LocalDateTime dateAndTimeOfFlight;
+    public String destinationCity;
+    public int amountOfAvailablePlaces;
     List<User> passengersOfFlight;
 
     public Flight(LocalDateTime dateAndTimeOfFlight, String destinationCity, int amountOfAvailablePlaces, int flightNumber) {

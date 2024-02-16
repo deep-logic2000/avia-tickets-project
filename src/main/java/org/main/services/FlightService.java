@@ -28,6 +28,7 @@ public class FlightService {
                 String randomSurname = "Surname" + c++;
                 User randomPassenger = new User(randomName, randomSurname);
                 flight.addPassenger(randomPassenger);
+
             }
         }
     }
