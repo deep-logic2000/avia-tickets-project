@@ -5,6 +5,8 @@ import org.main.controllers.UserController;
 import org.main.services.ReservationService;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -29,6 +31,21 @@ public class App implements Serializable {
         ReservationService reservationService = new ReservationService();
         ReservationController reservationController = new ReservationController(reservationService);
 
+        LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
+
+        Flight flight = new Flight(localDateTime, "Lviv", 12 );
+
+        Reservation reservation1 = new Reservation(flight, user1, 222, 112);
+        Reservation reservation2 = new Reservation(flight, user1, 232, 1123);
+        Reservation reservation3 = new Reservation(flight, user1, 213, 1233);
+        Reservation reservation4 = new Reservation(flight, user1, 241, 12);
+        Reservation reservation5 = new Reservation(flight, user2, 2222, 11122);
+
+        reservationController.saveReservation(reservation1);
+        reservationController.saveReservation(reservation2);
+        reservationController.saveReservation(reservation3);
+        reservationController.saveReservation(reservation4);
+        reservationController.saveReservation(reservation5);
 //        reservationController.addReservation(user1);
 //        reservationController.addReservation(user1);
 //        reservationController.addReservation(user1);
@@ -37,16 +54,19 @@ public class App implements Serializable {
 //        reservationController.addReservation(user3);
 
 
-        reservationController.loadingDataFromAFile(FILE_NAME);
+//        reservationController.loadingDataFromAFile(FILE_NAME);
 
 
-//        reservationController.writingDataToAFile(reservationController.getAllReservations(), (FILE_NAME);
-        System.out.println("--------------------------displayAllReservationsOfThisUser-----------------------------");
+        reservationController.writingDataToAFile(reservationController.getAllReservations(), (TEST_FILE_NAME));
+
+        System.out.println("--------------------------displayAllReservationsOfThisUser1-----------------------------");
         reservationController.displayAllReservationsOfThisUser(user1);
+        System.out.println("--------------------------displayAllReservationsOfThisUser2-----------------------------");
         reservationController.displayAllReservationsOfThisUser(user2);
+        System.out.println("--------------------------displayAllReservationsOfThisUser3-----------------------------");
         reservationController.displayAllReservationsOfThisUser(user3);
         reservationController.deleteReservationById(user1, 1);
-        System.out.println("--------------------------displayAllReservationsOfThisUser-----------------------------");
+        System.out.println("--------------------------displayAllReservationsOfThisUser1-----------------------------");
         reservationController.displayAllReservationsOfThisUser(user1);
         System.out.println("--------------------------displayReservationsOfThisUserById-----------------------------");
         reservationController.displayReservationsOfThisUserById(user1, 1);

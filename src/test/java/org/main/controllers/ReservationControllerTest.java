@@ -1,10 +1,12 @@
 package org.main.controllers;
 
 import org.junit.jupiter.api.Test;
+import org.main.Flight;
 import org.main.Reservation;
 import org.main.User;
 import org.main.services.ReservationService;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,14 +19,17 @@ class ReservationControllerTest {
         ReservationService reservationService = new ReservationService();
         ReservationController reservationController = new ReservationController(reservationService);
 
+        LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
+        Flight flight = new Flight(localDateTime, "Lviv", 12 );
+
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
         User user2 = new User("Kyrylo", "Nazarov", "Кирило", "Назаров");
 
-        Reservation reservation1 = new Reservation(12, user1, 222, 112);
-        Reservation reservation2 = new Reservation(13, user1, 232, 1123);
-        Reservation reservation3 = new Reservation(14, user1, 213, 1233);
-        Reservation reservation4 = new Reservation(15, user1, 241, 12);
-        Reservation reservation5 = new Reservation(143, user2, 2222, 11122);
+        Reservation reservation1 = new Reservation(flight, user1, 222, 112);
+        Reservation reservation2 = new Reservation(flight, user1, 232, 1123);
+        Reservation reservation3 = new Reservation(flight, user1, 213, 1233);
+        Reservation reservation4 = new Reservation(flight, user1, 241, 12);
+        Reservation reservation5 = new Reservation(flight, user2, 2222, 11122);
 
         reservationController.loadingDataFromAFile(TEST_FILE_NAME);
 
@@ -43,13 +48,16 @@ class ReservationControllerTest {
         ReservationService reservationService = new ReservationService();
         ReservationController reservationController = new ReservationController(reservationService);
 
+        LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
+        Flight flight = new Flight(localDateTime, "Lviv", 12 );
+
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
         User user2 = new User("Kyrylo", "Nazarov", "Кирило", "Назаров");
 
-        Reservation reservation1 = new Reservation(12, user1, 222, 112);
-        Reservation reservation2 = new Reservation(13, user1, 232, 1123);
-        Reservation reservation3 = new Reservation(14, user1, 213, 1233);
-        Reservation reservation4 = new Reservation(15, user1, 241, 12);
+        Reservation reservation1 = new Reservation(flight, user1, 222, 112);
+        Reservation reservation2 = new Reservation(flight, user1, 232, 1123);
+        Reservation reservation3 = new Reservation(flight, user1, 213, 1233);
+        Reservation reservation4 = new Reservation(flight, user1, 241, 12);
 
         reservationController.loadingDataFromAFile(TEST_FILE_NAME);
         List<Reservation> testReservations = new ArrayList<>();
@@ -67,10 +75,14 @@ class ReservationControllerTest {
         ReservationService reservationService = new ReservationService();
         ReservationController reservationController = new ReservationController(reservationService);
 
+        LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
+        Flight flight = new Flight(localDateTime, "Lviv", 12 );
+
+
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
 
         reservationController.loadingDataFromAFile(TEST_FILE_NAME);
-        Reservation testReservations = new Reservation(12, user1, 222, 112);
+        Reservation testReservations = new Reservation(flight, user1, 222, 112);
 
 
 
@@ -81,7 +93,6 @@ class ReservationControllerTest {
     void deleteReservationById() {
         ReservationService reservationService = new ReservationService();
         ReservationController reservationController = new ReservationController(reservationService);
-
 
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
         reservationController.loadingDataFromAFile(TEST_FILE_NAME);
@@ -95,10 +106,13 @@ class ReservationControllerTest {
         ReservationService reservationService = new ReservationService();
         ReservationController reservationController = new ReservationController(reservationService);
 
+        LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
+        Flight flight = new Flight(localDateTime, "Lviv", 12 );
+
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
         reservationController.loadingDataFromAFile(TEST_FILE_NAME);
 
-        Reservation reservation5 = new Reservation(143, user1, 2222, 11122);
+        Reservation reservation5 = new Reservation(flight, user1, 2222, 11122);
         reservationController.saveReservation(reservation5);
 
         assertEquals(5, reservationController.getAllReservationsOfThisUser(user1).size());

@@ -1,11 +1,13 @@
 package org.main.dao;
 
 import org.junit.jupiter.api.Test;
+import org.main.Flight;
 import org.main.Reservation;
 import org.main.User;
 import org.main.controllers.ReservationController;
 import org.main.services.ReservationService;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,11 +24,14 @@ class CollectionsReservationDAOTest {
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
         User user2 = new User("Kyrylo", "Nazarov", "Кирило", "Назаров");
 
-        Reservation reservation1 = new Reservation(12, user1, 222, 112);
-        Reservation reservation2 = new Reservation(13, user1, 232, 1123);
-        Reservation reservation3 = new Reservation(14, user1, 213, 1233);
-        Reservation reservation4 = new Reservation(15, user1, 241, 12);
-        Reservation reservation5 = new Reservation(143, user2, 2222, 11122);
+        LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
+        Flight flight = new Flight(localDateTime, "Lviv", 12 );
+
+        Reservation reservation1 = new Reservation(flight, user1, 222, 112);
+        Reservation reservation2 = new Reservation(flight, user1, 232, 1123);
+        Reservation reservation3 = new Reservation(flight, user1, 213, 1233);
+        Reservation reservation4 = new Reservation(flight, user1, 241, 12);
+        Reservation reservation5 = new Reservation(flight, user2, 2222, 11122);
 
         collectionsReservationDAO.loadingDataFromAFile(TEST_FILE_NAME);
 
@@ -47,10 +52,13 @@ class CollectionsReservationDAOTest {
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
         User user2 = new User("Kyrylo", "Nazarov", "Кирило", "Назаров");
 
-        Reservation reservation1 = new Reservation(12, user1, 222, 112);
-        Reservation reservation2 = new Reservation(13, user1, 232, 1123);
-        Reservation reservation3 = new Reservation(14, user1, 213, 1233);
-        Reservation reservation4 = new Reservation(15, user1, 241, 12);
+        LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
+        Flight flight = new Flight(localDateTime, "Lviv", 12 );
+
+        Reservation reservation1 = new Reservation(flight, user1, 222, 112);
+        Reservation reservation2 = new Reservation(flight, user1, 232, 1123);
+        Reservation reservation3 = new Reservation(flight, user1, 213, 1233);
+        Reservation reservation4 = new Reservation(flight, user1, 241, 12);
 
         collectionsReservationDAO.loadingDataFromAFile(TEST_FILE_NAME);
         List<Reservation> testReservations = new ArrayList<>();
@@ -70,8 +78,11 @@ class CollectionsReservationDAOTest {
 
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
 
+        LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
+        Flight flight = new Flight(localDateTime, "Lviv", 12 );
+
         collectionsReservationDAO.loadingDataFromAFile(TEST_FILE_NAME);
-        Reservation testReservations = new Reservation(12, user1, 222, 112);
+        Reservation testReservations = new Reservation(flight, user1, 222, 112);
 
 
 
@@ -94,10 +105,13 @@ class CollectionsReservationDAOTest {
     void saveReservation() {
         CollectionsReservationDAO collectionsReservationDAO = new CollectionsReservationDAO();
 
+        LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
+        Flight flight = new Flight(localDateTime, "Lviv", 12 );
+
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
         collectionsReservationDAO.loadingDataFromAFile(TEST_FILE_NAME);
 
-        Reservation reservation5 = new Reservation(143, user1, 2222, 11122);
+        Reservation reservation5 = new Reservation(flight, user1, 2222, 11122);
         collectionsReservationDAO.saveReservation(reservation5);
 
         assertEquals(5, collectionsReservationDAO.getAllReservationsOfThisUser(user1).size());
