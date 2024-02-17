@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Flight implements Serializable {
@@ -83,5 +84,20 @@ public class Flight implements Serializable {
                 ", dateAndTimeOfFlight=" + dateAndTimeOfFlight +
                 ", amountOfAvailablePlaces=" + amountOfAvailablePlaces +
                 '}';
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flight flight = (Flight) o;
+        return MAX_AMOUNT_OF_PASSENGERS == flight.MAX_AMOUNT_OF_PASSENGERS && flightNumber == flight.flightNumber && amountOfAvailablePlaces == flight.amountOfAvailablePlaces && Objects.equals(dateAndTimeOfFlight, flight.dateAndTimeOfFlight) && Objects.equals(destinationCity, flight.destinationCity) && Objects.equals(passengersOfFlight, flight.passengersOfFlight);
+//        return Objects.equals()
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(MAX_AMOUNT_OF_PASSENGERS, flightNumber, dateAndTimeOfFlight, destinationCity, amountOfAvailablePlaces, passengersOfFlight);
     }
 }
