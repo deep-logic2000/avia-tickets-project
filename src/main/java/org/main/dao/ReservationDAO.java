@@ -7,10 +7,13 @@ import org.main.User;
 import java.util.List;
 
 public interface ReservationDAO {
-List<Reservation> getAllReservationsOfThisUser(User user);
-Reservation getReservationsOfThisUserById(User user, int id);
-void addReservation(User user, Flight flight);
-void deleteReservationById(User user, int id);
+    List<Reservation> getAllReservationsOfThisUser(User user);
 
-public boolean saveReservation(Reservation reservation);
+    Reservation getReservationsOfThisUserById(User user, int id);
+
+    void addReservation(User user, Flight flight);
+
+    void deleteReservationById(User user, int id);
+
+    public boolean saveReservation(Reservation reservation);
 }

@@ -5,17 +5,18 @@ import java.util.Objects;
 
 public class Reservation implements Serializable {
 
+    private int id;
     private Flight flight;
     private User user;
     private double price;
     private int seatNumber;
 
-    public Reservation(Flight flight, User user, double price, int seatNumber) {
-
+    public Reservation(Flight flight, User user, double price, int seatNumber, int id) {
         this.flight = flight;
         this.user = user;
         this.price = price;
         this.seatNumber = seatNumber;
+        this.id = id;
     }
 
 
@@ -51,9 +52,18 @@ public class Reservation implements Serializable {
         this.seatNumber = seatNumber;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String prettyFormat() {
         StringBuilder pf = new StringBuilder();
 
+        pf.append("   ID: ").append(id);
         pf.append("   Passenger name: ").append(user.getName());
         pf.append("   Passenger surname: ").append(user.getSurname());
         pf.append("   Price: ").append(price);
@@ -78,12 +88,11 @@ public class Reservation implements Serializable {
     public int hashCode() {return Objects.hash(flight, user, price, seatNumber);}
 
 
-
-
     @Override
     public String toString() {
         return "Reservation{" +
-                "flightNumber=" + flight +
+                "id=" + id +
+                ", flight=" + flight +
                 ", user=" + user +
                 ", price=" + price +
                 ", seatNumber=" + seatNumber +

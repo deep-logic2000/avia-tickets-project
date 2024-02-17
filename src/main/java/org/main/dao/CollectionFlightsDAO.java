@@ -64,7 +64,7 @@ public class CollectionFlightsDAO implements FlightsDAO {
                 .collect(Collectors.toList());
 
         return filteredFlights;
-    };
+    }
 
 
     private boolean compareDates(LocalDateTime dateTimeOfFlight, LocalDate userInputedDate){

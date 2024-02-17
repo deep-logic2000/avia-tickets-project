@@ -4,6 +4,7 @@ import org.main.Flight;
 import org.main.User;
 import org.main.dao.CollectionFlightsDAO;
 
+import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,8 +14,8 @@ public class FlightService implements Serializable {
 
     CollectionFlightsDAO flightsDAO;
 
-    public FlightService(CollectionFlightsDAO flightsDAO) {
-        this.flightsDAO = flightsDAO;
+    public FlightService() {
+        this.flightsDAO = new CollectionFlightsDAO(new File("flights.bin"));
     }
 
     public void generateRandomFlights(){
