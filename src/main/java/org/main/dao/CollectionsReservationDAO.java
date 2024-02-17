@@ -3,6 +3,7 @@ package org.main.dao;
 import org.main.Flight;
 import org.main.Reservation;
 import org.main.User;
+import org.main.services.FlightService;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -36,13 +37,20 @@ public class CollectionsReservationDAO implements ReservationDAO {
 
     @Override
     public void addReservation(User user, Flight flight) {
-        System.out.println("Input price:");
-        double price = scanner.nextDouble();
-        System.out.println("Input seat number:");
-        int seatNumber = scanner.nextInt();
-        Reservation reservation = new Reservation(flight, user, price, seatNumber);
 
-        reservations.add(reservation);
+        if(flight.amountOfAvailablePlaces > 0){
+            System.out.println("Input price:");
+            double price = scanner.nextDouble();
+            System.out.println("Input seat number:");
+            int seatNumber = scanner.nextInt();
+            Reservation reservation = new Reservation(flight, user, price, seatNumber);
+            flight.addPassenger(user);
+
+            reservations.add(reservation);
+        }else {
+            System.out.println("now available seats");
+        }
+
     }
 
     @Override
