@@ -62,7 +62,7 @@ public class CollectionFlightsDAO implements FlightsDAO {
                 .filter(el -> compareDates(el.dateAndTimeOfFlight, dateOfFlight))
                 .filter(el -> el.amountOfAvailablePlaces >= amountOfNecessaryTickets)
                 .collect(Collectors.toList());
-
+        System.out.println("filteredFlights" + filteredFlights);
         return filteredFlights;
     };
 
