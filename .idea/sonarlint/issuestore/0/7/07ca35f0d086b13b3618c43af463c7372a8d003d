@@ -1,32 +1,32 @@
 
 {
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ŒÃ¾þÿÿÿÿ8”Î„˜Û1
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ŒÃ¾þÿÿÿÿ8°¹»¶Û1
 {
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(™ŒÃ¾þÿÿÿÿ8•Î„˜Û1
+java:S2293 "YReplace the type specification in this constructor call with the diamond operator ("<>").(™ŒÃ¾þÿÿÿÿ8±¹»¶Û1
 z
-java:S1104"XMake flightNumber a static final constant or non-public and provide accessors if needed.(³Æò·ýÿÿÿÿ8–Î„˜Û1
+java:S1104"XMake flightNumber a static final constant or non-public and provide accessors if needed.(³Æò·ýÿÿÿÿ8µ¹»¶Û1
 |
-java:S1104"_Make dateAndTimeOfFlight a static final constant or non-public and provide accessors if needed.(íªÜƒ8–Î„˜Û1
+java:S1104"_Make dateAndTimeOfFlight a static final constant or non-public and provide accessors if needed.(íªÜƒ8¶¹»¶Û1
 }
-java:S1104"[Make destinationCity a static final constant or non-public and provide accessors if needed.(ð¥þÌúÿÿÿÿ8–Î„˜Û1
+java:S1104"[Make destinationCity a static final constant or non-public and provide accessors if needed.(ð¥þÌúÿÿÿÿ8·¹»¶Û1
 …
-java:S1104"cMake amountOfAvailablePlaces a static final constant or non-public and provide accessors if needed.(Ú€Ïöúÿÿÿÿ8–Î„˜Û1
-„	java:S116"cRename this field "MAX_AMOUNT_OF_PASSENGERS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â–ÜÝÿÿÿÿÿ8¨Î„˜Û1
+java:S1104"cMake amountOfAvailablePlaces a static final constant or non-public and provide accessors if needed.(Ú€Ïöúÿÿÿÿ8¸¹»¶Û1
+„	java:S116"cRename this field "MAX_AMOUNT_OF_PASSENGERS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(â–ÜÝÿÿÿÿÿ8Œ»»¶Û1
 L
-java:S1948"/Make "passengersOfFlight" private or transient.(…Ã”ë8©Î„˜Û1
+java:S1948"/Make "passengersOfFlight" private or transient.(…Ã”ë8˜»»¶Û1
 >
-java:S1116"Remove this empty statement.(ôŸŽìúÿÿÿÿ8­Î„˜Û1
+java:S1116"Remove this empty statement.(ôŸŽìúÿÿÿÿ8ç»»¶Û1
 >
-java:S1116 "Remove this empty statement.(ôŸŽìúÿÿÿÿ8®Î„˜Û1
+java:S1116!"Remove this empty statement.(ôŸŽìúÿÿÿÿ8ï»»¶Û1
 >
-java:S1116$"Remove this empty statement.(ôŸŽìúÿÿÿÿ8¯Î„˜Û1
+java:S1116%"Remove this empty statement.(ôŸŽìúÿÿÿÿ8ó»»¶Û1
 >
-java:S1116("Remove this empty statement.(ôŸŽìúÿÿÿÿ8°Î„˜Û1
+java:S1116)"Remove this empty statement.(ôŸŽìúÿÿÿÿ8÷»»¶Û1
 >
-java:S1116-"Remove this empty statement.(ôŸŽìúÿÿÿÿ8²Î„˜Û1
+java:S1116."Remove this empty statement.(ôŸŽìúÿÿÿÿ8¼»¶Û1
 >
-java:S11161"Remove this empty statement.(ôŸŽìúÿÿÿÿ8²Î„˜Û1
+java:S11162"Remove this empty statement.(ôŸŽìúÿÿÿÿ8§¼»¶Û1
 R
 java:S1128"0Remove this unused import 'java.time.LocalDate'.(›‘¬èýÿÿÿÿ8½Î„˜Û1
 Z
-java:S1128"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8¾Î„˜Û1
+java:S1128	"8Remove this unused import 'java.util.stream.Collectors'.(Óóº´úÿÿÿÿ8¾Î„˜Û1

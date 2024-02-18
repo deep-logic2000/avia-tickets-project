@@ -62,7 +62,6 @@ public class FlightService implements Serializable {
 
     public void displayAllFlights(){
         List<Flight> allFlights = getAllFlights();
-//        int count = 1;
         if(allFlights.size() == 0){
             System.out.println("No flights available");
         }

@@ -15,12 +15,11 @@ K
 java:S21407")Use "java.util.Random.nextInt()" instead.(íŞ øşÿÿÿÿ8ƒÁ®˜Û1
 >
 java:S1116="Remove this empty statement.(ôŸìúÿÿÿÿ8…Á®˜Û1
-W	java:S125A"<This block of commented-out lines of code should be removed.(¸Úù#8†Á®˜Û1
 `
-java:S1155B">Use isEmpty() to check whether the collection is empty or not.(–á—ûùÿÿÿÿ8†Á®˜Û1
-G	java:S106C"+Replace this use of System.out by a logger.(ß’Ú…8†Á®˜Û1
+java:S1155A">Use isEmpty() to check whether the collection is empty or not.(–á—ûùÿÿÿÿ8†Á®˜Û1
+G	java:S106B"+Replace this use of System.out by a logger.(ß’Ú…8†Á®˜Û1
 n
-java:S3457G"Q%n should be used in place of \n to produce the platform-specific line separator.(ºÜèÔ8‡Á®˜Û1
-G	java:S106G"+Replace this use of System.out by a logger.(ºÜèÔ8‡Á®˜Û1
+java:S3457F"Q%n should be used in place of \n to produce the platform-specific line separator.(ºÜèÔ8‡Á®˜Û1
+G	java:S106F"+Replace this use of System.out by a logger.(ºÜèÔ8‡Á®˜Û1
 >
-java:S1116T"Remove this empty statement.(ôŸìúÿÿÿÿ8‰Á®˜Û1
+java:S1116S"Remove this empty statement.(ôŸìúÿÿÿÿ8‰Á®˜Û1
