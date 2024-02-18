@@ -41,13 +41,9 @@ public class CollectionsReservationDAO implements ReservationDAO {
     }
 
     @Override
-    public void addReservation(User user, Flight flight) {
+    public void addReservation(User user, Flight flight, String name, String surname) {
 
         if(flight.amountOfAvailablePlaces > 0){
-            System.out.println("Input Name:");
-            String name = scanner.nextLine();
-            System.out.println("Input Surname:");
-            String surname = scanner.nextLine();
             Reservation reservation = new Reservation(flight, user, name,surname);
             flight.addPassenger(user);
 

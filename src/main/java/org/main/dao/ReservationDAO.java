@@ -11,7 +11,7 @@ public interface ReservationDAO {
 
     Reservation getReservationsOfThisUserById(User user, int id);
 
-    void addReservation(User user, Flight flight);
+    void addReservation(User user, Flight flight, String name, String surname);
 
     void deleteReservationById(User user, int id);
 

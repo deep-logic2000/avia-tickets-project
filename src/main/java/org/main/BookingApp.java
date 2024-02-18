@@ -26,6 +26,7 @@ public class BookingApp {
 
 
     private void runApp() throws Exception {
+        rc.loadingDataFromAFile("reservationDataFile.bin");
         while (run){
             getMenu();
             int choice = getChoice();
@@ -144,7 +145,7 @@ public class BookingApp {
             flight.decreaseAmountOfAvailablePlaces();
 
             Reservation reservation = new Reservation(flight, currentUser, name, surname);
-            rc.addReservation(currentUser, flight);
+            rc.addReservation(currentUser, flight, name, surname);
         }
 
         System.out.println("Flight booking completed successfully!");
@@ -219,6 +220,7 @@ public class BookingApp {
         System.out.println("Close the program? Yes/No");
         String s = scanner.nextLine();
         if (s.equals("Yes")){
+            rc.writingDataToAFile(rc.getAllReservations(), "reservationDataFile.bin");
             run = false;
         } else if (s.equals("No")) {
             run = true;

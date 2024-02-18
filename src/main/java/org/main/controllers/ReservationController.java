@@ -26,8 +26,8 @@ public class ReservationController {
         return reservationService.getReservationsOfThisUserById(user, id);
     }
 
-    public void addReservation(User user, Flight flight) {
-        reservationService.addReservation(user, flight);
+    public void addReservation(User user, Flight flight, String name, String surname) {
+        reservationService.addReservation(user, flight, name, surname);
     }
 
     public void deleteReservationById(User user, int id) {
