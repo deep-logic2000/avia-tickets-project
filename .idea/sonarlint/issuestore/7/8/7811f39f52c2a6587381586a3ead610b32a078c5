@@ -1,25 +1,31 @@
 
-y	java:S127."XRefactor the code in order to not assign to this loop counter from within the loop body.(Úß˜»ùÿÿÿÿ8âÀ®˜Û1
-t	java:S127/"XRefactor the code in order to not assign to this loop counter from within the loop body.(¦Õœ¹8ãÀ®˜Û1
+y	java:S1271"XRefactor the code in order to not assign to this loop counter from within the loop body.(Úß˜»ùÿÿÿÿ8Ê©õÛÛ1
+t	java:S1272"XRefactor the code in order to not assign to this loop counter from within the loop body.(¦Õœ¹8Ë©õÛÛ1
 „
-java:S1488;"bImmediately return this expression instead of assigning it to the temporary variable "allFlights".(–Ùáúÿÿÿÿ8äÀ®˜Û1
+java:S1488>"bImmediately return this expression instead of assigning it to the temporary variable "allFlights".(–Ùáúÿÿÿÿ8Ò©õÛÛ1
 N
-java:S1948",Make "flightsDAO" transient or serializable.(õ³ğ‚ùÿÿÿÿ8øÀ®˜Û1
+java:S1948",Make "flightsDAO" transient or serializable.(õ³ğ‚ùÿÿÿÿ8œöàÛ1
 F
-java:S2140")Use "java.util.Random.nextInt()" instead.(ê™Ç·8üÀ®˜Û1
+java:S2140")Use "java.util.Random.nextInt()" instead.(ê™Ç·8†¬õÛÛ1
 F
-java:S2140")Use "java.util.Random.nextInt()" instead.(æåë8ıÀ®˜Û1
+java:S2140")Use "java.util.Random.nextInt()" instead.(æåë8‹¬õÛÛ1
 K
-java:S2140,")Use "java.util.Random.nextInt()" instead.(Áƒ«ˆÿÿÿÿÿ8Á®˜Û1
+java:S2140/")Use "java.util.Random.nextInt()" instead.(Áƒ«ˆÿÿÿÿÿ8¬¬õÛÛ1
 K
-java:S21407")Use "java.util.Random.nextInt()" instead.(íŞ øşÿÿÿÿ8ƒÁ®˜Û1
+java:S2140:")Use "java.util.Random.nextInt()" instead.(íŞ øşÿÿÿÿ8´¬õÛÛ1
 >
-java:S1116="Remove this empty statement.(ôŸìúÿÿÿÿ8…Á®˜Û1
+java:S1116@"Remove this empty statement.(ôŸìúÿÿÿÿ8‰Á®˜Û1
 `
-java:S1155A">Use isEmpty() to check whether the collection is empty or not.(–á—ûùÿÿÿÿ8†Á®˜Û1
-G	java:S106B"+Replace this use of System.out by a logger.(ß’Ú…8†Á®˜Û1
+java:S1155D">Use isEmpty() to check whether the collection is empty or not.(–á—ûùÿÿÿÿ8†Á®˜Û1
+G	java:S106E"+Replace this use of System.out by a logger.(ß’Ú…8†Á®˜Û1
 n
-java:S3457F"Q%n should be used in place of \n to produce the platform-specific line separator.(ºÜèÔ8‡Á®˜Û1
-G	java:S106F"+Replace this use of System.out by a logger.(ºÜèÔ8‡Á®˜Û1
+java:S3457I"Q%n should be used in place of \n to produce the platform-specific line separator.(ºÜèÔ8‡Á®˜Û1
+G	java:S106I"+Replace this use of System.out by a logger.(ºÜèÔ8‡Á®˜Û1
 >
-java:S1116S"Remove this empty statement.(ôŸìúÿÿÿÿ8‰Á®˜Û1
+java:S1116V"Remove this empty statement.(ôŸìúÿÿÿÿ8Ù¬õÛÛ1
+Q
+java:S1128"5Remove this unused import 'java.io.FileOutputStream'.(˜«ªg8‘š¶àÛ1
+R
+java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8‘š¶àÛ1
+Y
+java:S1128	"7Remove this unused import 'java.io.ObjectOutputStream'.(é»Óºûÿÿÿÿ8‘š¶àÛ1

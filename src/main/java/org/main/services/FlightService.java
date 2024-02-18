@@ -4,6 +4,9 @@ import org.main.Flight;
 import org.main.User;
 import org.main.dao.CollectionFlightsDAO;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -29,7 +32,7 @@ public class FlightService implements Serializable {
         flightsDAO.saveDataToFile();
     }
 
-    Flight createNewRandomFlight(int flightNum, String destinationCity){
+    public Flight createNewRandomFlight(int flightNum, String destinationCity){
 
         int randomYear = randBetween(LocalDateTime.now().getYear(), 2025);
         int randomMonth = randBetween(LocalDateTime.now().getMonth().getValue(), 12);
@@ -55,7 +58,7 @@ public class FlightService implements Serializable {
         return start + (int)Math.round(Math.random() * (end - start));
     }
 
-    List<Flight> getAllFlights(){
+    public List<Flight> getAllFlights(){
         List<Flight> allFlights = flightsDAO.getAllFlights();
         return allFlights;
     };
@@ -81,5 +84,9 @@ public class FlightService implements Serializable {
     public boolean addPassengerToFlight(User passenger, int flightId) throws Exception{
         return flightsDAO.addPassengerToFlight(passenger, flightId);
     };
+
+    public void saveFlightsDataToFile() {
+        flightsDAO.saveDataToFile();
+    }
 
 }
