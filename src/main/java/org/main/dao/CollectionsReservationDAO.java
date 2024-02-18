@@ -39,11 +39,11 @@ public class CollectionsReservationDAO implements ReservationDAO {
     public void addReservation(User user, Flight flight) {
 
         if(flight.amountOfAvailablePlaces > 0){
-            System.out.println("Input price:");
-            double price = scanner.nextDouble();
-            System.out.println("Input seat number:");
-            int seatNumber = scanner.nextInt();
-            Reservation reservation = new Reservation(flight, user, price, seatNumber);
+            System.out.println("Input Name:");
+            String name = scanner.nextLine();
+            System.out.println("Input Surname:");
+            String surname = scanner.nextLine();
+            Reservation reservation = new Reservation(flight, user, name,surname);
             flight.addPassenger(user);
 
             reservations.add(reservation);

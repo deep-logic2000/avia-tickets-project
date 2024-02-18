@@ -27,11 +27,11 @@ class CollectionsReservationDAOTest {
         LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
         Flight flight = new Flight(localDateTime, "Lviv", 12 );
 
-        Reservation reservation1 = new Reservation(flight, user1, 222, 112);
-        Reservation reservation2 = new Reservation(flight, user1, 232, 1123);
-        Reservation reservation3 = new Reservation(flight, user1, 213, 1233);
-        Reservation reservation4 = new Reservation(flight, user1, 241, 12);
-        Reservation reservation5 = new Reservation(flight, user2, 2222, 11122);
+        Reservation reservation1 = new Reservation(flight, user1, "Igor", "Melnik");
+        Reservation reservation2 = new Reservation(flight, user1, "Marina", "Ivanova");
+        Reservation reservation3 = new Reservation(flight, user1, "Oleh", "Ivanov");
+        Reservation reservation4 = new Reservation(flight, user1, "Ivan", "Ivanov");
+        Reservation reservation5 = new Reservation(flight, user2, "Sasha", "Ivanov");
 
         collectionsReservationDAO.loadingDataFromAFile(TEST_FILE_NAME);
 
@@ -55,10 +55,11 @@ class CollectionsReservationDAOTest {
         LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
         Flight flight = new Flight(localDateTime, "Lviv", 12 );
 
-        Reservation reservation1 = new Reservation(flight, user1, 222, 112);
-        Reservation reservation2 = new Reservation(flight, user1, 232, 1123);
-        Reservation reservation3 = new Reservation(flight, user1, 213, 1233);
-        Reservation reservation4 = new Reservation(flight, user1, 241, 12);
+        Reservation reservation1 = new Reservation(flight, user1, "Igor", "Melnik");
+        Reservation reservation2 = new Reservation(flight, user1, "Marina", "Ivanova");
+        Reservation reservation3 = new Reservation(flight, user1, "Oleh", "Ivanov");
+        Reservation reservation4 = new Reservation(flight, user1, "Ivan", "Ivanov");
+
 
         collectionsReservationDAO.loadingDataFromAFile(TEST_FILE_NAME);
         List<Reservation> testReservations = new ArrayList<>();
@@ -82,8 +83,7 @@ class CollectionsReservationDAOTest {
         Flight flight = new Flight(localDateTime, "Lviv", 12 );
 
         collectionsReservationDAO.loadingDataFromAFile(TEST_FILE_NAME);
-        Reservation testReservations = new Reservation(flight, user1, 222, 112);
-
+        Reservation testReservations = new Reservation(flight, user1, "Igor", "Melnik");
 
 
         assertEquals(testReservations, collectionsReservationDAO.getReservationsOfThisUserById(user1,1));
@@ -111,7 +111,7 @@ class CollectionsReservationDAOTest {
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
         collectionsReservationDAO.loadingDataFromAFile(TEST_FILE_NAME);
 
-        Reservation reservation5 = new Reservation(flight, user1, 2222, 11122);
+        Reservation reservation5 = new Reservation(flight, user1, "Sasha", "Ivanov");
         collectionsReservationDAO.saveReservation(reservation5);
 
         assertEquals(5, collectionsReservationDAO.getAllReservationsOfThisUser(user1).size());

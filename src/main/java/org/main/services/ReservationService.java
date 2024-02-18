@@ -38,8 +38,9 @@ public class ReservationService {
         List<Reservation> allReservationsOfThisUser = getAllReservationsOfThisUser(user);
         if (allReservationsOfThisUser != null) {
             allReservationsOfThisUser.stream()
-                    .forEachOrdered(reservation -> System.out.println(allReservationsOfThisUser.indexOf(reservation) + 1
-                    + " " + reservation.prettyFormat()));
+                    .forEachOrdered(reservation -> System.out.println("ID:" +
+                            (allReservationsOfThisUser.indexOf(reservation) + 1)
+                    + "\n" + reservation.prettyFormat()));
 
         } else {
             System.out.println("Список бронювань пустий!!!");
