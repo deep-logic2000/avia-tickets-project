@@ -25,11 +25,11 @@ class ReservationControllerTest {
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
         User user2 = new User("Kyrylo", "Nazarov", "Кирило", "Назаров");
 
-        Reservation reservation1 = new Reservation(flight, user1, 222, 112);
-        Reservation reservation2 = new Reservation(flight, user1, 232, 1123);
-        Reservation reservation3 = new Reservation(flight, user1, 213, 1233);
-        Reservation reservation4 = new Reservation(flight, user1, 241, 12);
-        Reservation reservation5 = new Reservation(flight, user2, 2222, 11122);
+        Reservation reservation1 = new Reservation(flight, user1, "Igor", "Melnik");
+        Reservation reservation2 = new Reservation(flight, user1, "Marina", "Ivanova");
+        Reservation reservation3 = new Reservation(flight, user1, "Oleh", "Ivanov");
+        Reservation reservation4 = new Reservation(flight, user1, "Ivan", "Ivanov");
+        Reservation reservation5 = new Reservation(flight, user2, "Sasha", "Ivanov");
 
         reservationController.loadingDataFromAFile(TEST_FILE_NAME);
 
@@ -54,10 +54,11 @@ class ReservationControllerTest {
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
         User user2 = new User("Kyrylo", "Nazarov", "Кирило", "Назаров");
 
-        Reservation reservation1 = new Reservation(flight, user1, 222, 112);
-        Reservation reservation2 = new Reservation(flight, user1, 232, 1123);
-        Reservation reservation3 = new Reservation(flight, user1, 213, 1233);
-        Reservation reservation4 = new Reservation(flight, user1, 241, 12);
+        Reservation reservation1 = new Reservation(flight, user1, "Igor", "Melnik");
+        Reservation reservation2 = new Reservation(flight, user1, "Marina", "Ivanova");
+        Reservation reservation3 = new Reservation(flight, user1, "Oleh", "Ivanov");
+        Reservation reservation4 = new Reservation(flight, user1, "Ivan", "Ivanov");
+
 
         reservationController.loadingDataFromAFile(TEST_FILE_NAME);
         List<Reservation> testReservations = new ArrayList<>();
@@ -82,7 +83,7 @@ class ReservationControllerTest {
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
 
         reservationController.loadingDataFromAFile(TEST_FILE_NAME);
-        Reservation testReservations = new Reservation(flight, user1, 222, 112);
+        Reservation testReservations = new Reservation(flight, user1, "Igor", "Melnik");
 
 
 
@@ -112,7 +113,7 @@ class ReservationControllerTest {
         User user1 = new User("Pavlo", "Barabah", "Павло", "Барабах");
         reservationController.loadingDataFromAFile(TEST_FILE_NAME);
 
-        Reservation reservation5 = new Reservation(flight, user1, 2222, 11122);
+        Reservation reservation5 = new Reservation(flight, user1, "Sasha", "Ivanov");
         reservationController.saveReservation(reservation5);
 
         assertEquals(5, reservationController.getAllReservationsOfThisUser(user1).size());
