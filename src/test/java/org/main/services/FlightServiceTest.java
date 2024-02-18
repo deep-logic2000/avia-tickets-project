@@ -3,7 +3,6 @@ package org.main.services;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.main.Flight;
 import org.main.User;
 import org.main.dao.CollectionFlightsDAO;
@@ -64,6 +63,7 @@ public class FlightServiceTest {
     public void getAllFlights() {
         File f = new File("testFlightsData.bin");
         f.delete();
+        flightsDAO.clearDataBase();
 
         Flight flight1 = new Flight(LocalDateTime.of(2024, 02, 17, 12, 00), "City1", 1);
         Flight flight2 = new Flight(LocalDateTime.of(2024, 02, 17, 12, 05), "City2", 2);
@@ -73,7 +73,6 @@ public class FlightServiceTest {
         flightsDAO.addFlightToBase(flight2);
 
         List<Flight> result = flightService.getAllFlights();
-        System.out.println("result" + result);
 
         assertNotNull(result);
         assertEquals(mockFlights, result);
@@ -119,6 +118,5 @@ public class FlightServiceTest {
 
         assertNotNull(resultFlights);
         assertEquals(mockFlights, resultFlights);
-
     }
 }

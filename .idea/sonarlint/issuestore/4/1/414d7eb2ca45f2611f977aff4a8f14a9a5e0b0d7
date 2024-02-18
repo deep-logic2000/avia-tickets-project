@@ -1,16 +1,14 @@
 
-a	java:S1126"FDefine and throw a dedicated exception instead of using a generic one.(‰Æáe8õ´é˜Û1
 v
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(£Ş¡¿8ãÀè˜Û1
-€
-java:S14883"^Immediately return this expression instead of assigning it to the temporary variable "flight".(ÍÚ»ÿÿÿÿÿ8åÀè˜Û1
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(£Ş¡¿8™Š¢óÛ1
+‰
+java:S1488>"gImmediately return this expression instead of assigning it to the temporary variable "filteredFlights".(ù§Ôàúÿÿÿÿ8öÍËóÛ1
 o
-java:S6204@"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8„Áè˜Û1
+java:S6204B"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8ÅŠ¢óÛ1
 …
-java:S1157="cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(‘©êÏùÿÿÿÿ8…Áè˜Û1
-L	java:S106A"+Replace this use of System.out by a logger.(¡íËŞÿÿÿÿÿ8ŠÁè˜Û1
+java:S1157?"cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(‘©êÏùÿÿÿÿ8ÆŠ¢óÛ1
 >
-java:S1116C"Remove this empty statement.(ôŸìúÿÿÿÿ8ŠÁè˜Û1
-G	java:S106X"+Replace this use of System.out by a logger.(Œçš¤8¡ÃûìÛ1
+java:S1116D"Remove this empty statement.(ôŸìúÿÿÿÿ8ÉŠ¢óÛ1
+G	java:S106Y"+Replace this use of System.out by a logger.(Œçš¤8ĞŠ¢óÛ1
 >
-java:S1116["Remove this empty statement.(ôŸìúÿÿÿÿ8â‘àÛ1
+java:S1116\"Remove this empty statement.(ôŸìúÿÿÿÿ8ĞŠ¢óÛ1
