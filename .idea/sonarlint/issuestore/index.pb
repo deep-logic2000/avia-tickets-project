@@ -35,3 +35,5 @@ q
 Asrc/test/java/org/main/controllers/ReservationControllerTest.java,5\a\5a3a024c2d2bdd6803f25ad289b8f37e257315a4
 m
 =src/test/java/org/main/dao/CollectionsReservationDAOTest.java,b\9\b9c5d23acf07c72425d971f67fb1d6cf3ac182df
+f
+6src/test/java/org/main/services/FlightServiceTest.java,9\a\9ac4b3dd56289378bb084f50ddda8b87d934578f
