@@ -11,7 +11,7 @@ java:S6204@"RReplace this usage of 'Stream.collect(Collectors.toList())' with '
 …
 java:S1157="cReplace these toUpperCase()/toLowerCase() and equals() calls with a single equalsIgnoreCase() call.(‘©êÏùÿÿÿÿ8…Áè˜Û1
 >
-java:S1116C"Remove this empty statement.(ôŸìúÿÿÿÿ8†Áè˜Û1
+java:S1116C"Remove this empty statement.(ôŸìúÿÿÿÿ8ŠÁè˜Û1
 G	java:S106X"+Replace this use of System.out by a logger.(Œçš¤8ŠÁè˜Û1
 >
-java:S1116["Remove this empty statement.(ôŸìúÿÿÿÿ8ŠÁè˜Û1
+java:S1116["Remove this empty statement.(ôŸìúÿÿÿÿ8â‘àÛ1

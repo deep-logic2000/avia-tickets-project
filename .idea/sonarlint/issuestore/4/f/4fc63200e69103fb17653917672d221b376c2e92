@@ -1,6 +1,24 @@
 
+b	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ëÑñ´8ÁÊ£àÛ1
+>
+java:S1116"Remove this empty statement.(ôŸìúÿÿÿÿ8‡úàÛ1
+>
+java:S1116"Remove this empty statement.(ôŸìúÿÿÿÿ8‰úàÛ1
+‰
+java:S1130"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ëÑñ´8ÔÊ£àÛ1
+9
+java:S1116"Remove this empty statement.(Ù¿İ¶8æŸàÛ1
+L	java:S106 "+Replace this use of System.out by a logger.(î±ñ¬ûÿÿÿÿ8úàÛ1
+H
+java:S1168""+Return an empty collection instead of null.(¥¹ï8šè¥àÛ1
+>
+java:S1116#"Remove this empty statement.(ôŸìúÿÿÿÿ8Ûö àÛ1
 n
-java:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(ºÜèÔ8øäâ˜Û1
-G	java:S106"+Replace this use of System.out by a logger.(ºÜèÔ8øäâ˜Û1
-G	java:S106 "+Replace this use of System.out by a logger.(‹®ƒî8úäâ˜Û1
-L	java:S106#"+Replace this use of System.out by a logger.(´º¥ˆùÿÿÿÿ8úäâ˜Û1
+java:S3457+"Q%n should be used in place of \n to produce the platform-specific line separator.(ºÜèÔ8ŒúàÛ1
+G	java:S106+"+Replace this use of System.out by a logger.(ºÜèÔ8úàÛ1
+>
+java:S11161"Remove this empty statement.(ôŸìúÿÿÿÿ8¨³«àÛ1
+G	java:S106:"+Replace this use of System.out by a logger.(‹®ƒî8ï· àÛ1
+L	java:S106="+Replace this use of System.out by a logger.(´º¥ˆùÿÿÿÿ8ï· àÛ1
+>
+java:S1116C"Remove this empty statement.(ôŸìúÿÿÿÿ8®Ü­àÛ1
