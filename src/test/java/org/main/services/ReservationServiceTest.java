@@ -26,11 +26,11 @@ class ReservationServiceTest {
         LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
         Flight flight = new Flight(localDateTime, "Lviv", 12 );
 
-        Reservation reservation1 = new Reservation(flight, user1, 222, 112);
-        Reservation reservation2 = new Reservation(flight, user1, 232, 1123);
-        Reservation reservation3 = new Reservation(flight, user1, 213, 1233);
-        Reservation reservation4 = new Reservation(flight, user1, 241, 12);
-        Reservation reservation5 = new Reservation(flight, user2, 2222, 11122);
+        Reservation reservation1 = new Reservation(flight, user1, "Igor", "Melnik");
+        Reservation reservation2 = new Reservation(flight, user1, "Marina", "Ivanova");
+        Reservation reservation3 = new Reservation(flight, user1, "Oleh", "Ivanov");
+        Reservation reservation4 = new Reservation(flight, user1, "Ivan", "Ivanov");
+        Reservation reservation5 = new Reservation(flight, user2, "Sasha", "Ivanov");
 
         reservationService.loadingDataFromAFile(TEST_FILE_NAME);
 
@@ -54,10 +54,10 @@ class ReservationServiceTest {
         LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
         Flight flight = new Flight(localDateTime, "Lviv", 12 );
 
-        Reservation reservation1 = new Reservation(flight, user1, 222, 112);
-        Reservation reservation2 = new Reservation(flight, user1, 232, 1123);
-        Reservation reservation3 = new Reservation(flight, user1, 213, 1233);
-        Reservation reservation4 = new Reservation(flight, user1, 241, 12);
+        Reservation reservation1 = new Reservation(flight, user1, "Igor", "Melnik");
+        Reservation reservation2 = new Reservation(flight, user1, "Marina", "Ivanova");
+        Reservation reservation3 = new Reservation(flight, user1, "Oleh", "Ivanov");
+        Reservation reservation4 = new Reservation(flight, user1, "Ivan", "Ivanov");
 
         reservationService.loadingDataFromAFile(TEST_FILE_NAME);
         List<Reservation> testReservations = new ArrayList<>();
@@ -80,7 +80,7 @@ class ReservationServiceTest {
         Flight flight = new Flight(localDateTime, "Lviv", 12 );
 
         reservationService.loadingDataFromAFile(TEST_FILE_NAME);
-        Reservation testReservations = new Reservation(flight, user1, 222, 112);
+        Reservation testReservations = new Reservation(flight, user1, "Igor", "Melnik");
 
 
 
@@ -109,7 +109,7 @@ class ReservationServiceTest {
         LocalDateTime localDateTime = LocalDateTime.of(2024, 10, 14,11,12);
         Flight flight = new Flight(localDateTime, "Lviv", 12 );
 
-        Reservation reservation5 = new Reservation(flight, user1, 2222, 11122);
+        Reservation reservation5 = new Reservation(flight, user1, "Sasha", "Ivanov");
         reservationService.saveReservation(reservation5);
 
         assertEquals(5, reservationService.getAllReservationsOfThisUser(user1).size());

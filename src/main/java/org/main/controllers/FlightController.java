@@ -21,14 +21,9 @@ public class FlightController {
 
     public void displayFlightByInfo(String destination, LocalDate dateOfFlight, int amountOfNecessaryTickets){
         List<Flight> filteredFlightsByInfo = flightService.getFlightByInfo(destination, dateOfFlight, amountOfNecessaryTickets);
-
-        if (!filteredFlightsByInfo.isEmpty()) {
-            for (Flight flight : filteredFlightsByInfo) {
-                System.out.printf("%s\n", flight.prettyFormat());
-            }
-        } else {
-            System.out.println("There are no flights with such parameters. Booking is not aviable");
-        }
+           for (Flight flight : filteredFlightsByInfo){
+               System.out.printf("%s\n", flight.prettyFormat());
+           }
     }
 
     public void displayFlightById(int id) throws Exception {
@@ -39,10 +34,6 @@ public class FlightController {
         } catch (Exception e) {
             System.out.println("There are no flights with such number. Try again.");
         }
-    }
-
-    public List<Flight> getFlightByInfo(String destination, LocalDate dateOfFlight, int amountOfNecessaryTickets){
-        return flightService.getFlightByInfo(destination, dateOfFlight, amountOfNecessaryTickets);
     }
 
 }

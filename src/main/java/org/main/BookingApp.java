@@ -3,9 +3,11 @@ package org.main;
 import org.main.controllers.FlightController;
 import org.main.controllers.ReservationController;
 import org.main.controllers.UserController;
+import org.main.dao.CollectionFlightsDAO;
 import org.main.services.FlightService;
 import org.main.services.ReservationService;
 
+import java.io.File;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -13,7 +15,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BookingApp {
-    private static final FlightService fs = new FlightService();
+    private static final FlightService fs = new FlightService(new CollectionFlightsDAO(new File("flights.bin")));
     private static final FlightController fc = new FlightController(fs);
     private static final ReservationService rs = new ReservationService();
     private static final ReservationController rc = new ReservationController(rs);
@@ -21,6 +23,7 @@ public class BookingApp {
     private static final Scanner scanner = new Scanner(System.in);
     private boolean run = true;
     private User currentUser;
+
 
     private void runApp() throws Exception {
         while (run){
@@ -108,27 +111,18 @@ public class BookingApp {
         System.out.print("Enter Number of Passengers: ");
         int numOfPeople = Integer.parseInt(scanner.nextLine());
 
-        List<Flight> filteredFlights = fc.getFlightByInfo(destination, date, numOfPeople);
+        System.out.println("Found Flights:");
+        fc.displayFlightByInfo(destination, date, numOfPeople);
 
-        if (!filteredFlights.isEmpty()) {
-            System.out.println("Found Flights:");
-            for (Flight flight : filteredFlights) {
-                System.out.println(flight.prettyFormat());
-            }
-
-            System.out.println("Select Flight ID or enter 0 to return to main menu:");
-            int choiceId = Integer.parseInt(scanner.nextLine());
-            if (choiceId == 0){
-                runApp();
-            }
-            // Call method to display flight by chosen ID
-            fc.displayFlightById(choiceId);
-            for (int i = 0; i < filteredFlights.size(); i++) {
-                book(filteredFlights.get(i), numOfPeople);
-            }
-        } else {
-            System.out.println("No flights found with specified parameters.");
+        System.out.println("Select Flight ID or enter 0 to return to main menu:");
+        int choiceId = Integer.parseInt(scanner.nextLine());
+        if (choiceId == 0) {
+            runApp();
         }
+        // Call method to display flight by chosen ID
+        fc.displayFlightById(choiceId);
+        book(new Flight(date.atStartOfDay(), destination, numOfPeople), numOfPeople);
+
     }
 
 
@@ -137,27 +131,45 @@ public class BookingApp {
         System.out.println("Enter Passenger Details for Each Ticket:");
         List<String> passengerNames = new ArrayList<>();
         List<String> passengerSurnames = new ArrayList<>();
-        User user = null;
+
         for (int i = 0; i < numOfTickets; i++) {
             System.out.print("Passenger " + (i + 1) + " First Name: ");
-            passengerNames.add(scanner.nextLine());
+            String name = scanner.nextLine();
+            passengerNames.add(name);
+
             System.out.print("Passenger " + (i + 1) + " Last Name: ");
-            passengerSurnames.add(scanner.nextLine());
-            user = new User(passengerNames.get(i), passengerSurnames.get(i));
-            rc.addReservation(user, flight);
+            String surname = scanner.nextLine();
+            passengerSurnames.add(surname);
+
+            flight.decreaseAmountOfAvailablePlaces();
+
+            Reservation reservation = new Reservation(flight, currentUser, name, surname);
+            rc.addReservation(currentUser, flight);
         }
+
         System.out.println("Flight booking completed successfully!");
         System.out.println("Flight Details:");
         System.out.println(flight.prettyFormat());
         System.out.println("Number of Tickets: " + numOfTickets);
         System.out.println("Passengers:");
+
         for (int i = 0; i < passengerNames.size(); i++) {
             System.out.println(passengerSurnames.get(i) + " " + passengerNames.get(i));
         }
-
-
-
     }
+
+
+    private void cancelReservation() {
+        rc.displayAllReservationsOfThisUser(currentUser);
+        List<Reservation> reservations = rc.getAllReservationsOfThisUser(currentUser);
+        if(!reservations.isEmpty()) {
+            System.out.print("Enter Reservation ID: ");
+            int id = Integer.parseInt(scanner.nextLine());
+            rc.deleteReservationById(currentUser, id);
+            rc.displayAllReservationsOfThisUser(currentUser);
+        }
+    }
+
 
     private void logout() {
         currentUser = null;
@@ -173,8 +185,9 @@ public class BookingApp {
             String password = scanner.nextLine();
 
             try {
-                boolean isAuthenticated = uc.authenticateUser(login, password);
-                if (isAuthenticated) {
+                User isAuthenticated = uc.authenticateUser(login, password);
+                if (isAuthenticated != null) {
+                    currentUser = uc.getUserFromData(login, password); // отримати об'єкт користувача з допомогою login
                     runApp();
                 } else {
                     System.out.println("Authentication failed. Please try again.");
@@ -188,18 +201,6 @@ public class BookingApp {
         }
     }
 
-    private void cancelReservation(){
-        System.out.print("Enter Reservation ID: ");
-        int id = Integer.parseInt(scanner.nextLine());
-        System.out.print("Enter First Name: ");
-        String name = scanner.nextLine();
-        System.out.print("Enter Last Name: ");
-        String surname = scanner.nextLine();
-        currentUser = new User(name, surname);
-        rc.deleteReservationById(currentUser, id);
-
-    }
-
     private void myReservation(){
         System.out.print("Enter First Name: ");
         String name = scanner.nextLine();
@@ -208,7 +209,7 @@ public class BookingApp {
         User user = new User(name, surname);
         List<Reservation> reservations = rc.getAllReservationsOfThisUser(user);
         if (!reservations.isEmpty()){
-            System.out.println(rc.getAllReservationsOfThisUser(user));
+            rc.displayAllReservationsOfThisUser(user);
         } else {
             System.out.println("No such reservations exist!");
         }

@@ -10,8 +10,8 @@ import java.util.List;
 public class UserService {
     CollectionUserDao collectionUserDao = new CollectionUserDao(new File("Users.bin"));
 
-    public List<User> getUserFromData(User user){
-        return collectionUserDao.getUserFromData(user);
+    public User getUserFromData(String login, String password){
+        return collectionUserDao.getUserFromData(login, password);
     }
 
     public boolean saveUser(User user){
@@ -24,10 +24,10 @@ public class UserService {
         saveUser(newUser);
     }
 
-    public boolean authenticateUser(String login, String password) {
+    public User authenticateUser(String login, String password) {
         User user = new User(login, password);
-        List<User> foundUsers = collectionUserDao.getUserFromData(user);
-        return !foundUsers.isEmpty();
+        User foundUsers = collectionUserDao.getUserFromData(login, password);
+        return foundUsers;
     }
 
 }

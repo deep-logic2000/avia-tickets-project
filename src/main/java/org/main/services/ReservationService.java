@@ -1,6 +1,7 @@
 package org.main.services;
 
 
+import org.main.BookingOverflowException;
 import org.main.Flight;
 import org.main.Reservation;
 import org.main.User;
@@ -35,14 +36,19 @@ public class ReservationService {
     }
 
     public void displayAllReservationsOfThisUser(User user) {
-        List<Reservation> allReservationsOfThisUser = getAllReservationsOfThisUser(user);
-        if (allReservationsOfThisUser != null) {
-            allReservationsOfThisUser.stream()
-                    .forEachOrdered(reservation -> System.out.println(allReservationsOfThisUser.indexOf(reservation) + 1
-                    + " " + reservation.prettyFormat()));
+        try {
+            List<Reservation> allReservationsOfThisUser = getAllReservationsOfThisUser(user);
+            if (!allReservationsOfThisUser.isEmpty()) {
+                allReservationsOfThisUser.stream()
+                        .forEachOrdered(reservation -> System.out.println("ID:" +
+                                (allReservationsOfThisUser.indexOf(reservation) + 1)
+                                + "\n" + reservation.prettyFormat()));
 
-        } else {
-            System.out.println("Список бронювань пустий!!!");
+            } else {
+                System.out.println("List of reservations is empty!");
+            }
+        } catch (RuntimeException e){
+            throw new BookingOverflowException("Try again!");
         }
     }
 

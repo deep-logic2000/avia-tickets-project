@@ -5,7 +5,7 @@ import org.main.User;
 import java.util.List;
 
 public interface UserDAO {
-    List<User> getUserFromData(User user);
+    User getUserFromData(String login, String password);
     boolean saveUser(User user);
 
 }

@@ -12,8 +12,8 @@ public class UserController {
         this.userService = new UserService();
     }
 
-    public List<User> getUserFromData(User user){
-        return userService.getUserFromData(user);
+    public User getUserFromData(String login, String password){
+        return userService.getUserFromData(login, password);
     }
 
     public boolean saveUser(User user){
@@ -24,7 +24,7 @@ public class UserController {
         userService.createNewAccount(user);
     }
 
-    public boolean authenticateUser(String login, String password){
+    public User authenticateUser(String login, String password){
         return userService.authenticateUser(login, password);
     }
 }

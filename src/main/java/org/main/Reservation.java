@@ -5,20 +5,17 @@ import java.util.Objects;
 
 public class Reservation implements Serializable {
 
-    private int id;
     private Flight flight;
     private User user;
-    private double price;
-    private int seatNumber;
+    private String name;
+    private String surname;
 
-    public Reservation(Flight flight, User user, double price, int seatNumber, int id) {
+    public Reservation(Flight flight, User user, String name, String surname) {
         this.flight = flight;
         this.user = user;
-        this.price = price;
-        this.seatNumber = seatNumber;
-        this.id = id;
+        this.name = name;
+        this.surname = surname;
     }
-
 
     public Flight getFlight() {
         return flight;
@@ -36,39 +33,21 @@ public class Reservation implements Serializable {
         this.user = user;
     }
 
-    public double getPrice() {
-        return price;
+    public String getName() {
+        return name;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public int getSeatNumber() {
-        return seatNumber;
-    }
-
-    public void setSeatNumber(int seatNumber) {
-        this.seatNumber = seatNumber;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public String getSurname() {
+        return surname;
     }
 
     public String prettyFormat() {
         StringBuilder pf = new StringBuilder();
 
-        pf.append("   ID: ").append(id);
-        pf.append("   Passenger name: ").append(user.getName());
-        pf.append("   Passenger surname: ").append(user.getSurname());
-        pf.append("   Price: ").append(price);
-        pf.append("   Seat number: ").append(seatNumber);
-        pf.append(flight.prettyFormat());
+        pf.append("   Passenger name: ").append(name + "\n");
+        pf.append("   Passenger surname: ").append(surname + "\n");
+        pf.append(flight.prettyFormat() + "\n");
+        pf.append("--------------------------------------------------------------------------------------------------");
 
         return pf.toString();
     }
@@ -79,23 +58,22 @@ public class Reservation implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Reservation reservation = (Reservation) o;
         return Objects.equals(flight, reservation.flight) && Objects.equals(user, reservation.user)
-                && Objects.equals(price, reservation.price) && Objects.equals(seatNumber, reservation.seatNumber);
+                && Objects.equals(name, reservation.name) && Objects.equals(surname, reservation.surname);
     }
 
 
 
     @Override
-    public int hashCode() {return Objects.hash(flight, user, price, seatNumber);}
+    public int hashCode() {return Objects.hash(flight, user, name, surname);}
 
 
     @Override
     public String toString() {
         return "Reservation{" +
-                "id=" + id +
-                ", flight=" + flight +
+                "flight=" + flight +
                 ", user=" + user +
-                ", price=" + price +
-                ", seatNumber=" + seatNumber +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
                 '}';
     }
 }

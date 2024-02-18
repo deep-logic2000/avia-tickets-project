@@ -1,5 +1,6 @@
 package org.main.dao;
 
+import org.main.BookingOverflowException;
 import org.main.Flight;
 import org.main.Reservation;
 import org.main.User;
@@ -24,9 +25,13 @@ public class CollectionsReservationDAO implements ReservationDAO {
     @Override
     public List<Reservation> getAllReservationsOfThisUser(User user) {
 
-        return reservations.stream()
-                .filter(reservation -> reservation.getUser().equals(user))
-                .collect(Collectors.toList());
+        try {
+            return reservations.stream()
+                    .filter(reservation -> reservation.getUser().equals(user))
+                    .collect(Collectors.toList());
+        } catch (RuntimeException e){
+            throw new BookingOverflowException("Try again!");
+        }
     }
 
     @Override
@@ -39,17 +44,14 @@ public class CollectionsReservationDAO implements ReservationDAO {
     public void addReservation(User user, Flight flight) {
 
         if(flight.amountOfAvailablePlaces > 0){
-            System.out.println("Input ID:");
-            int id = scanner.nextInt();
-            System.out.println("Input price:");
-            double price = scanner.nextDouble();
-            System.out.println("Input seat number:");
-            int seatNumber = scanner.nextInt();
-            Reservation reservation = new Reservation(flight, user, price, seatNumber, id);
+            System.out.println("Input Name:");
+            String name = scanner.nextLine();
+            System.out.println("Input Surname:");
+            String surname = scanner.nextLine();
+            Reservation reservation = new Reservation(flight, user, name,surname);
             flight.addPassenger(user);
 
             reservations.add(reservation);
-            writingDataToAFile(reservations, "reservationDataFile.bin");
         }else {
             System.out.println("now available seats");
         }
@@ -58,24 +60,13 @@ public class CollectionsReservationDAO implements ReservationDAO {
 
     @Override
     public void deleteReservationById(User user, int id) {
-        List<Reservation> userReservations = getAllReservationsOfThisUser(user);
-        Reservation reservationToDelete = null;
-        for (Reservation reservation : userReservations) {
-            if (reservation.getId() == id) {
-                reservationToDelete = reservation;
-                break;
-            }
-        }
-        if (reservationToDelete != null) {
-            reservations.remove(reservationToDelete);
-            System.out.println("Deleted");
-        } else {
-            System.out.println("Error: Reservation with ID " + id + " not found.");
+        try {
+            Reservation reservationDel = getAllReservationsOfThisUser(user).get(id);
+            reservations.remove(reservationDel);
+        } catch (RuntimeException e){
+            System.out.println("Try again!");
         }
     }
-
-
-
 
     @Override
     public boolean saveReservation(Reservation reservation) {
