@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class BookingApp implements Serializable {
-    private static final FlightService fs = new FlightService(new CollectionFlightsDAO(new File("flight.bin")));
+    private static final FlightService fs = new FlightService(new CollectionFlightsDAO(new File("flights.bin")));
     private static final FlightController fc = new FlightController(fs);
     private static final ReservationService rs = new ReservationService();
     private static final ReservationController rc = new ReservationController(rs);

@@ -57,7 +57,7 @@ public class CollectionsReservationDAO implements ReservationDAO {
     @Override
     public void deleteReservationById(User user, int id) {
         try {
-            Reservation reservationDel = getAllReservationsOfThisUser(user).get(id);
+            Reservation reservationDel = getAllReservationsOfThisUser(user).get(id - 1);
             reservations.remove(reservationDel);
         } catch (RuntimeException e){
             System.out.println("Try again!");
