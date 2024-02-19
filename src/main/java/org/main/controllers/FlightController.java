@@ -1,6 +1,7 @@
 package org.main.controllers;
 
 import org.main.Flight;
+import org.main.ResultNotFoundException;
 import org.main.User;
 import org.main.services.FlightService;
 
@@ -57,7 +58,7 @@ public class FlightController {
         Flight result = flightService.getFlightById(id);
         System.out.println(result.prettyFormat());
 
-        } catch (Exception e) {
+        } catch (ResultNotFoundException e) {
             System.out.println("There are no flights with such number. Try again.");
         }
     }
