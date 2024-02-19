@@ -1,6 +1,7 @@
 package org.main.dao;
 
 import org.main.Flight;
+import org.main.ResultNotFoundException;
 import org.main.User;
 
 import java.io.*;
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class CollectionFlightsDAO implements FlightsDAO {
@@ -47,11 +49,11 @@ public class CollectionFlightsDAO implements FlightsDAO {
 
     @Override
     public Flight getFlightById(int id) throws Exception {
-        try {
-            Flight flight = this.flights.stream().filter(el -> el.flightNumber == id).findFirst().orElseThrow(() -> new Exception("There are no flights with such number. Try again."));
-            return flight;
-        } catch (Exception e) {
-            throw new Exception();
+        Optional<Flight> flight = this.flights.stream().filter(el -> el.flightNumber == id).findFirst();
+        if(flight.isPresent()){
+            return flight.get();
+        } else {
+            throw new ResultNotFoundException("Result not found for ID: " + id);
         }
     }
 
@@ -62,7 +64,6 @@ public class CollectionFlightsDAO implements FlightsDAO {
                 .filter(el -> compareDates(el.dateAndTimeOfFlight, dateOfFlight))
                 .filter(el -> el.amountOfAvailablePlaces >= amountOfNecessaryTickets)
                 .collect(Collectors.toList());
-
         return filteredFlights;
     }
 
@@ -89,5 +90,9 @@ public class CollectionFlightsDAO implements FlightsDAO {
             return false;
         }
     };
+
+    public void clearDataBase(){
+        this.flights = new ArrayList<>();
+    }
 
 }
