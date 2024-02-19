@@ -8,14 +8,15 @@ import org.main.services.FlightService;
 import org.main.services.ReservationService;
 
 import java.io.File;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BookingApp {
-    private static final FlightService fs = new FlightService(new CollectionFlightsDAO(new File("flights.bin")));
+public class BookingApp implements Serializable {
+    private static final FlightService fs = new FlightService(new CollectionFlightsDAO(new File("flight.bin")));
     private static final FlightController fc = new FlightController(fs);
     private static final ReservationService rs = new ReservationService();
     private static final ReservationController rc = new ReservationController(rs);

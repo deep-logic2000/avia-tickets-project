@@ -1,5 +1,10 @@
 package org.main;
 
+import org.main.controllers.UserController;
+import org.main.dao.CollectionFlightsDAO;
+import org.main.services.FlightService;
+
+import java.io.File;
 import java.io.Serializable;
 
 /**
@@ -12,6 +17,7 @@ public class Main {
         BookingApp bookingApp = new BookingApp();
         bookingApp.authenticateUser();
     }
+
 //    private static final String FLIGHTS_DATA_FILE_NAME = "flights.bin";
 //    public static void main(String[] args) throws Exception {
 //
