@@ -22,13 +22,13 @@ public class User implements Serializable {
         this.surname = surname;
     }
 
+
+
     @Override
     public String toString() {
         return "User{" +
-                "login='" + login + '\'' +
-                ", password='" + password + '\'' +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
+                "name='" + login + '\'' +
+                ", surname='" + password + '\'' +
                 '}';
     }
 

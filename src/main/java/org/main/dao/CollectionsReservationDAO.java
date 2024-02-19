@@ -1,5 +1,6 @@
 package org.main.dao;
 
+import org.main.BookingOverflowException;
 import org.main.Flight;
 import org.main.Reservation;
 import org.main.User;
@@ -24,9 +25,13 @@ public class CollectionsReservationDAO implements ReservationDAO {
     @Override
     public List<Reservation> getAllReservationsOfThisUser(User user) {
 
-        return reservations.stream()
-                .filter(reservation -> reservation.getUser().equals(user))
-                .collect(Collectors.toList());
+        try {
+            return reservations.stream()
+                    .filter(reservation -> reservation.getUser().equals(user))
+                    .collect(Collectors.toList());
+        } catch (RuntimeException e){
+            throw new BookingOverflowException("Try again!");
+        }
     }
 
     @Override
@@ -36,13 +41,9 @@ public class CollectionsReservationDAO implements ReservationDAO {
     }
 
     @Override
-    public void addReservation(User user, Flight flight) {
+    public void addReservation(User user, Flight flight, String name, String surname) {
 
         if(flight.amountOfAvailablePlaces > 0){
-            System.out.println("Input Name:");
-            String name = scanner.nextLine();
-            System.out.println("Input Surname:");
-            String surname = scanner.nextLine();
             Reservation reservation = new Reservation(flight, user, name,surname);
             flight.addPassenger(user);
 
@@ -55,8 +56,12 @@ public class CollectionsReservationDAO implements ReservationDAO {
 
     @Override
     public void deleteReservationById(User user, int id) {
-        Reservation reservationDel = getAllReservationsOfThisUser(user).get(id);
-        reservations.remove(reservationDel);
+        try {
+            Reservation reservationDel = getAllReservationsOfThisUser(user).get(id - 1);
+            reservations.remove(reservationDel);
+        } catch (RuntimeException e){
+            System.out.println("Try again!");
+        }
     }
 
     @Override

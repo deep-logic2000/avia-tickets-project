@@ -33,7 +33,13 @@ public class Reservation implements Serializable {
         this.user = user;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public String getSurname() {
+        return surname;
+    }
 
     public String prettyFormat() {
         StringBuilder pf = new StringBuilder();

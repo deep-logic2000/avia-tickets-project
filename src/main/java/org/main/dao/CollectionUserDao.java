@@ -6,6 +6,7 @@ import org.main.User;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class CollectionUserDao implements UserDAO {
@@ -19,16 +20,18 @@ public class CollectionUserDao implements UserDAO {
     }
 
     @Override
-    public List<User> getUserFromData(User user) {
-        List<User> foundedUser = databaseOfUsers.stream()
-                .filter(u -> u.getLogin().equals(user.getLogin()) && u.getPassword().equals(user.getPassword()))
-                .collect(Collectors.toList());
-        if (foundedUser.isEmpty()) {
-            throw new BookingOverflowException("Користувач не знайдений!");
+    public User getUserFromData(String login, String password) {
+        Optional<User> optionalUser = databaseOfUsers.stream()
+                .filter(u -> u.getLogin().equals(login) && u.getPassword().equals(password))
+                .findFirst();
+
+        if (optionalUser.isPresent()) {
+            return optionalUser.get();
         } else {
-            return foundedUser;
+            throw new BookingOverflowException("Користувач не знайдений!");
         }
     }
+
 
     @Override
     public boolean saveUser(User user) {
